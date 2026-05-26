@@ -15,6 +15,15 @@ Currently running automation infrastructure for 6+ clients while building Gercio
 
 ---
 
+## 📦 Repositories
+
+- **[job-assistant](https://github.com/sancoders/job-assistant)** — Chrome extension + n8n + Claude for AI cover letters & screening answers
+- **[n8n-automations](https://github.com/sancoders/n8n-automations)** — production n8n workflows (Gercio ordering + job-search pipeline)
+- **[OrdenesRestGercio](https://github.com/sancoders/OrdenesRestGercio)** — Gercio real-time kitchen display (Next.js + Supabase Realtime)
+- **[gercio-landing](https://github.com/sancoders/gercio-landing)** — Gercio marketing landing (Next.js + Tailwind)
+
+---
+
 ## Featured Projects
 
 ### [Gercio](https://gercio.site) - Restaurant Automation SaaS
@@ -43,13 +52,18 @@ Full-stack QR-based ordering system with AI conversational assistant, payment pr
 
 **Infrastructure:** Production deployment on Vercel (frontend) + self-hosted n8n on VPS + Supabase cloud database
 
+**Code:** [Kitchen Display repo](https://github.com/sancoders/OrdenesRestGercio) · [Landing repo](https://github.com/sancoders/gercio-landing) · [n8n automations](https://github.com/sancoders/n8n-automations)
+
 [Live Site](https://gercio.site) | [Demo App](https://v0-gercio.vercel.app) | [Kitchen Display](https://v0-real-time-kitchen-display.vercel.app)
 
 ---
 
-### AI-Powered Job Search Automation
+### AI-Powered Job Search & Application Toolkit
 
-Automated job search system that scrapes multiple job boards, uses Claude AI to score fit, and notifies via Telegram with pre-generated cover letter hooks.
+Two connected projects I built to speed up my own job search and demonstrate the exact stack these roles ask for:
+
+- **[job-assistant](https://github.com/sancoders/job-assistant)** — a Chrome extension + n8n workflow that turns any job posting into a tailored cover letter and answers to screening questions, with an LLM (Claude). Two modes: fast fit-scoring, and full application generation.
+- **[n8n-automations → job-search](https://github.com/sancoders/n8n-automations)** — an n8n pipeline that pulls remote listings, filters by keywords/seniority, scores each 0–100 against my profile with an LLM, stores them in Supabase and pushes matches to Telegram.
 
 **Tech Stack:**  
 ![n8n](https://img.shields.io/badge/-n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
@@ -57,20 +71,14 @@ Automated job search system that scrapes multiple job boards, uses Claude AI to 
 ![Supabase](https://img.shields.io/badge/-Supabase-3ECF8E?style=flat-square&logo=supabase&logoColor=white)
 ![Telegram](https://img.shields.io/badge/-Telegram-26A5E4?style=flat-square&logo=telegram&logoColor=white)
 
-**Architecture:**
+**Flow:**
 ```
-Job Boards (LinkedIn/RemoteOK/WWR) 
-  → n8n (every 6hrs)
-  → Deduplication
-  → Claude AI scoring (0-100)
+Job posting → extension / n8n
+  → keyword + seniority filter
+  → LLM fit-scoring (0-100) + cover letter + screening answers
   → Supabase storage
-  → Telegram notification (score ≥75 only)
+  → Telegram notification
 ```
-
-**Impact:**
-- Job review time: 2+ hrs/day → 15 min/day
-- Notification relevance: 85%+ accuracy
-- Automated cover letter hook generation
 
 ---
 
@@ -147,9 +155,9 @@ Self-hosted n8n on production VPS, cloud deployment, workflow monitoring
 
 - 6+ clients supported via automation infrastructure
 - 2+ production systems running 24/7
-- 85%+ accuracy in AI-powered job matching
-- 60% reduction in manual CRM work
-- 1+ year production automation experience
+- Order processing cut from ~5 min to <30 sec (Gercio)
+- ~60% reduction in manual CRM work (Desorbitante)
+- ~1.5 years of production automation experience
 - 20 years old (founded a company while studying engineering)
 
 ---
